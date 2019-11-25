@@ -29,9 +29,18 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testAdd()
+    /*public function testAdd()
     {
         $result = $this->calculator->add(1, 2);
         $this->assertEquals(3, $result);
+    }*/
+
+    /**
+     * @dataProvider addDataProvider
+     */
+    public function testAdd($a, $b, $expected)
+    {
+        $result = $this->calculator->add($a, $b);
+        $this->assertEquals($expected, $result);
     }
 }
