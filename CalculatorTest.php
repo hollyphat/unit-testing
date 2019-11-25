@@ -29,6 +29,20 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testWithStub()
+    {
+        // Create a stub for the Calculator class.
+        $calculator = $this->getMockBuilder('Calculator')
+            ->getMock();
+
+        // Configure the stub.
+        $calculator->expects($this->any())
+            ->method('add')
+            ->will($this->returnValue(6));
+
+        $this->assertEquals(6, $calculator->add(100,100));
+    }
+
     /*public function testAdd()
     {
         $result = $this->calculator->add(1, 2);
