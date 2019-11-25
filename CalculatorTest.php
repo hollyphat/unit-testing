@@ -21,6 +21,14 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
         $this->calculator = NULL;
     }
 
+    public function addDataProvider() {
+        return array(
+            array(1,2,3),
+            array(0,0,0),
+            array(-1,-1,-2),
+        );
+    }
+
     public function testAdd()
     {
         $result = $this->calculator->add(1, 2);
